@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Edit Show</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS v5.2.0-beta1 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"  integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+    <div class="container">
+        <nav class="nav nav-pills nav-fill">
+            <a class="nav-item nav-link active" href="/dashboard">Dashboard</a>
+            <a class="nav-item nav-link" href="/account">My Trees</a>
+            <a class="nav-item nav-link" href="/logout">Logout</a>
+        </nav>
+        <div class="form_container">
+            <form action="/update/show" method="post" class="col p-4 my-4 bg-light text-dark mx-auto">
+                <h2 class="text-dark">Edit Tree</h2>
+                {% with messages = get_flashed_messages(category_filter=['show']) %}
+                    {% if messages %}
+                    <div class="alert alert-danger" role="alert">
+                        <strong>Error</strong>
+                            {% for message in messages %}
+                            <p>{{message}}</p>
+                            {% endfor %}
+                    </div>
+                    {% endif %}
+                {% endwith %}
+            <div class="d-flex justify-content-between col-9">
+                <input type="hidden" name="id" value={{edit.id}}>
+                <div class="col-8">
+                    <div class="form-group">
+                        <label for="title">Species:</label>
+                        <input type="text" name="title" class="form-control" value="{{edit.title}}">
+                    </div>
+                    <div class="form-group">
+                        <label for="network">Location:</label>
+                        <textarea name="network"  cols="30" rows="5" class="form-control">{{edit.network}}</textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Description:</label>
+                        <textarea name="description"  cols="30" rows="5" class="form-control">{{edit.description}}</textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="date_made">Date Planted:</label>
+                        <input type="date" name="release_date" value="{{edit.release_date.strftime('%Y-%m-%d')}}" class="form-control">
+                    </div>
+                    <br>
+                    <input type="submit" value="Update Show" class="btn btn-primary">
+                </div>
+            </div>
+            </form>
+        </div>
+    </div>
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
+</body>
+</html>

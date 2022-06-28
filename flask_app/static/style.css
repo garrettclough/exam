@@ -1,0 +1,38 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    /* border: 2px dotted red; */
+}
+
+nav {
+    padding: 15px 25px;
+    text-decoration: none;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    color: black;
+    background-color: aliceblue;
+    font-size: 18px;
+}
+
+nav a {
+    text-decoration: none;
+    color: black;
+}
+nav a:hover {
+    background-color: white;
+    color: black;
+}
+
+.form_container {
+    display: block;
+    padding: 15px 25px;
+}
+
+.logout {
+    background-color: black;
+    color: white;
+    padding: 3px 18px;
+}
+
+/* don't turn this in, remove all this css and replace it with bootstrap classes */
